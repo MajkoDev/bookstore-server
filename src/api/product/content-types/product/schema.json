@@ -1,0 +1,89 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "products"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "availability": {
+      "type": "enumeration",
+      "enum": [
+        "in stock",
+        "pre-order",
+        "sold out"
+      ],
+      "default": "in stock"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "normal",
+        "isNew",
+        "isBestseller"
+      ],
+      "default": "normal"
+    },
+    "pages": {
+      "type": "integer"
+    },
+    "format": {
+      "type": "enumeration",
+      "enum": [
+        "paperback",
+        "hardcover",
+        "kindle",
+        "audiobook"
+      ]
+    },
+    "language": {
+      "type": "string"
+    },
+    "isbn13": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string"
+    }
+  }
+}
